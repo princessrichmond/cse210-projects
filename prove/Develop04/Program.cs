@@ -51,7 +51,7 @@ class Program
     }
     static void StartReflectingActivity(){
         Console.Clear();
-        RefectingActivity reflectingActivity = new RefectingActivity();
+        ReflectingActivity reflectingActivity = new ReflectingActivity();
         reflectingActivity.DisplayStartingMessage();
         Console.Write("\nHow long, in seconds, would you like for your session? ");
         int duration = int.Parse(Console.ReadLine());
@@ -73,7 +73,7 @@ class Program
         // ListingActivity listingActivity = new ListingActivity();
         // listingActivity.Run();
 
-        // RefectingActivity reflectingActivity = new RefectingActivity();
+        // ReflectingActivity reflectingActivity = new ReflectingActivity();
         // reflectingActivity.Run();
     
 }
