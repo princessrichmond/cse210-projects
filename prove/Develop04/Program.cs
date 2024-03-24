@@ -21,13 +21,11 @@ class Program
                 StartBreathingActivity();
             }
             else if(choice == 2){
-                // StartReflectingActivity();
-                StartBreathingActivity(); // testing no. 1 first
+                StartReflectingActivity();
 
             }
             else if(choice == 3){
-                // StartListingActivity();
-                StartBreathingActivity(); // testing no.1 first
+                StartListingActivity();
 
             }
             else if (choice == 4){
@@ -51,21 +49,23 @@ class Program
 
 
     }
-    // static void StartRefectingActivity(){
-    //     Console.Write("How long, in seconds, would you like for your session? ");
-    //     int duration = int.Parse(Console.ReadLine());
+    static void StartReflectingActivity(){
+        Console.Clear();
+        RefectingActivity reflectingActivity = new RefectingActivity();
+        reflectingActivity.DisplayStartingMessage();
+        Console.Write("\nHow long, in seconds, would you like for your session? ");
+        int duration = int.Parse(Console.ReadLine());
+        reflectingActivity.Run(duration);
+    }
 
-    //     RefectingActivity reflectingActivity = new RefectingActivity();
-    //     reflectingActivity.Run();
-    // }
-
-    // static void StartListingActivity(){
-    //     Console.Write("How long, in seconds, would you like for your session? ");
-    //     int duration = int.Parse(Console.ReadLine());
-
-    //     ListingActivity listingActivity = new ListingActivity();
-    //     listingActivity.Run();
-    // }
+    static void StartListingActivity(){
+        Console.Clear();
+        ListingActivity listingActivity = new ListingActivity();
+        listingActivity.DisplayStartingMessage();
+        Console.Write("\nHow long, in seconds, would you like for your session? ");
+        int duration = int.Parse(Console.ReadLine());
+        listingActivity.Run(duration);
+    }
         // Console.WriteLine("Hello Develop04 World!");
         // BreathingActivity breathingActivity = new BreathingActivity();
         // breathingActivity.Run();

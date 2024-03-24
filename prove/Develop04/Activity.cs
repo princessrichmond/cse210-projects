@@ -20,7 +20,6 @@ public class Activity{
     }
     public void DisplayStartingMessage(){
         Console.WriteLine($"Welcome to the {_name} {_description}.");
-        // Console.WriteLine($"Starting {_name} activity: {_description}");
         
     }
     public void DisplayEndingMessage(){
@@ -49,6 +48,5 @@ public class Activity{
             Thread.Sleep(1000);
             Console.Write("\b \b");
         }
-        // Console.WriteLine("Well done!!");
     }
 }
