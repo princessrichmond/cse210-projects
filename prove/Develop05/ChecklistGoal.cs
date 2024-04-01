@@ -11,13 +11,22 @@ public class ChecklistGoal: Goal{
         _amountCompleted = 0;
     }
 
-    public void RecordEvent(){
+    public override void RecordEvent(){
         _amountCompleted++;
-        if (_amountCompleted >= _target){
-            _points += _bonus;
-        }
+        // if (_amountCompleted >= _target){
+        //     _points += _bonus;
+        // }
     }
-    public bool IsComplete() => _amountCompleted >= _target;
-    public string GetDeatailsString() => $"{_shortName}: {_description} - {_points} points, Target: {_target}, {Completed}: {_amountCompleted}";
-    public string GetStringRepresentation() => $"{_shortName}. {_description}, {points},{ target}, {bonus} - Completed: {_amountCompleted} / {_target}";
+    
+    public override bool IsComplete(){
+        return _amountCompleted >= _target;
+    }
+    public override string GetDetailsString(){
+        // return $"{_shortName}: {_description} - {_points} points, Target: {_target}, {Completed}: {_amountCompleted}";
+            return $"{base.GetDetailsString()} - Currently completed: {_amountCompleted} / {_target}";
+    }
+    public override string GetStringRepresentation(){
+        // return $"ChecklistGoal{_shortName}, {_description}, {_points} points, Target: {_target}, Bonus: {_bonus}, Completed: {_amountCompleted}";
+            return $"{base.GetStringRepresentation()}, {_amountCompleted}, {_target}, {_bonus}";
+    }
 }
