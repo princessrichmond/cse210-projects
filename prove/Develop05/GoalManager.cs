@@ -151,12 +151,19 @@ public class GoalManager{
     private void SaveGoals(){
        Console.Write("What is the filename for the goal file? ");
         string filename = Console.ReadLine();
+            // try{
         using (StreamWriter writer = new StreamWriter(filename)) {
             foreach (var goal in _goals) {
                 writer.WriteLine(goal.GetStringRepresentation());
             }
         }
         Console.WriteLine("Goals are saved successfully.");
+        // }
+        // catch (Exception ex)
+        // {
+        //     Console.WriteLine($"Error occurred while saving goals: {ex.Message}");
+        // }
+        
     }
 
 
@@ -168,7 +175,6 @@ public class GoalManager{
             using (StreamReader reader = new StreamReader(filename)) {
                 string line;
                 while ((line = reader.ReadLine()) != null) {
-                    // Parse and add goals
                 }
             }
             Console.WriteLine("Goals loaded successfully.");
@@ -191,18 +197,24 @@ public class GoalManager{
         }
 
         Console.Write("Which goal you accomplish? Enter the number: ");
-        // if(int.TryParse(Console.ReadLine(), out int choice) && choice >= 1 && choice <= _goals.Count){
-        //     _goals[choice - 1]. RecordEvent();
-        //     int pointsEarned = _goals[choice - 1]._points;
+        if(int.TryParse(Console.ReadLine(), out choice) && choice >= 1 && choice <= _goals.Count){
+            _goals[choice - 1]. RecordEvent();
+            int pointsEarned;
+            // int pointsEarned = _goals[choice - 1]._points;
         //     _score += pointsEarned;
-        if (int.TryParse(_goals[choice - 1].Points, out int pointsEarned)) {
-            _score += pointsEarned;
-            Console.WriteLine($"Congratulations! You have earned {pointsEarned} points!");
-            Console.WriteLine($"You now have {_score} points.");
+
+            if (int.TryParse(_goals[choice - 1]._points, out pointsEarned)) {
+                _score += pointsEarned;
+                Console.WriteLine($"Congratulations! You have earned {pointsEarned} points!");
+                Console.WriteLine($"You now have {_score} points.");
+            }
+            else{
+                Console.WriteLine("Invalid input. Please enter a valid goal number.");
+            }
         }
         else{
-            Console.WriteLine("Invalid input. Please enter a valid goal number.");
+             Console.WriteLine("Invalid input. Please enter a valid goal number.");
         }
-    }
+        }
 }
     
